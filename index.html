@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U-NYA | Official Website</title>
+  <meta name="description" content="U-NYA 귀여운 고양이 캐릭터들의 세상! 12마리의 개성 넘치는 고양이들을 만나보세요.">
+
+  <!-- Google Fonts for Playful Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans+KR:wght@400;600;700&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- External CSS File -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- 웹사이트 전체를 감싸는 필수 wrapper -->
+  <div class="wrap" id="wrap">
+
+    <!-- 상단 네비게이션 바 (Header Bar) -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-container">
+        <!-- 좌측 로고 -->
+        <a href="#" class="logo" id="mainLogo">
+          <img src="unya-logo.png" alt="U-NYA"
+            onerror="this.outerHTML='<span class=\'logo-text\'>U-NYA</span><span class=\'logo-sparkle\'>✨</span>'">
+        </a>
+
+        <!-- 우측 네비게이션 메뉴 -->
+        <nav class="nav-menu" id="navMenu">
+          <a href="#about" class="nav-link active">About</a>
+
+          <a href="#characters" class="nav-link">characters</a>
+
+          <div class="nav-item-dropdown">
+            <a href="#Updates" class="nav-link dropdown-toggle">
+              Updates <span class="arrow">∨</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#news">뉴스</a>
+              <a href="#goods">굿즈 안내</a>
+            </div>
+          </div>
+
+          <a href="#gallery" class="nav-link">Gallery</a>
+          <a href="#shop" class="nav-link">Shop</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 메인 스테이지 영역 -->
+    <main class="main-stage">
+      <div class="cats-stage-container" id="catsStage">
+        <!-- 배경 서클 효과 -->
+        <div class="bg-halo"></div>
+
+        <!-- 12마리 고양이 캐릭터 배치 -->
+        <!-- cat1: 주황&검정 나비 잡는 고양이 (좌측 상단) -->
+        <div class="cat-item cat-1" data-id="1" data-name="주황 나비 고양이" data-quote="나비 잡았다! 🦋">
+          <img src="cat1.png" alt="cat1" class="cat-img">
+        </div>
+
+        <!-- cat2: 등 굽힌 검은 고양이 (좌측 중앙) -->
+        <div class="cat-item cat-2" data-id="2" data-name="블랙 캣" data-quote="기지개 켜는 중~ 🐾">
+          <img src="cat2.png" alt="cat2" class="cat-img">
+        </div>
+
+        <!-- cat3: 왕관을 쓴 왕고양이 (좌측 하단) -->
+        <div class="cat-item cat-3" data-id="3" data-name="로열 블루 냥이" data-quote="내가 이 구역의 왕이다! 👑">
+          <img src="cat3.png" alt="cat3" class="cat-img">
+        </div>
+
+        <!-- cat4: 줄무늬 혀 메롱 고양이 (하단 좌측) -->
+        <div class="cat-item cat-4" data-id="4" data-name="메롱 아기냥" data-quote="메롱~ 😋">
+          <img src="cat4.png" alt="cat4" class="cat-img">
+        </div>
+
+        <!-- cat5: 회색 눈망울 고양이 (하단 중앙) -->
+        <div class="cat-item cat-5" data-id="5" data-name="그레이 민트 냥이" data-quote="안녕? 궁금해? 👁️">
+          <img src="cat5.png" alt="cat5" class="cat-img">
+        </div>
+
+        <!-- cat6: 무지개눈 하얀 고양이 (하단 우측) -->
+        <div class="cat-item cat-6" data-id="6" data-name="레인보우 뿔 냥이" data-quote="내 눈을 바라봐~ 🌈">
+          <img src="cat6.png" alt="cat6" class="cat-img">
+        </div>
+
+        <!-- cat7: 로봇 마스크 고양이 (우측 중앙 하단) -->
+        <div class="cat-item cat-7" data-id="7" data-name="사이보그 냥이" data-quote="시스템 정상 가동 🤖">
+          <img src="cat7.png" alt="cat7" class="cat-img">
+        </div>
+
+        <!-- cat8: 뒤돌아보는 하늘색 고양이 (우측 중앙) -->
+        <div class="cat-item cat-8" data-id="8" data-name="스카이 워커 냥이" data-quote="어디 가냐구? 비밀! ☁️">
+          <img src="cat8.png" alt="cat8" class="cat-img">
+        </div>
+
+        <!-- cat9: 제3의 눈 보라 고양이 (우측 상단) -->
+        <div class="cat-item cat-9" data-id="9" data-name="미스틱 퍼플 냥이" data-quote="미래가 보인다냥... 🔮">
+          <img src="cat9.png" alt="cat9" class="cat-img">
+        </div>
+
+        <!-- cat10: 울고 있는 세 아기 고양이 (상단 중앙) -->
+        <div class="cat-item cat-10" data-id="10" data-name="울보 삼형제" data-quote="츄르 주세용 😭">
+          <img src="cat10.png" alt="cat10" class="cat-img">
+        </div>
+
+        <!-- cat11: 중앙 대형 하늘색 고양이 (메인 좌측) -->
+        <div class="cat-item cat-11" data-id="11" data-name="U-NYA 메인 하늘냥" data-quote="우냐세상에 온 걸 환영해! 💙">
+          <img src="cat11.png" alt="cat11" class="cat-img">
+        </div>
+
+        <!-- cat12: 중앙 대형 남색 고양이 (메인 우측) -->
+        <div class="cat-item cat-12" data-id="12" data-name="U-NYA 메인 네이비냥" data-quote="U-NYA! 같이 놀자냥! 🌌">
+          <img src="cat12.png" alt="cat12" class="cat-img">
+        </div>
+
+      </div>
+
+      <!-- About Section (스크롤 내렸을 때 보이는 영역) -->
+      <section id="about" class="about-section">
+        <div class="about-text">
+          <h2>
+            우울한 당신을 위한<br>
+            <span class="highlight">우-냐</span>가 도착했어요!
+          </h2>
+          <p>친구 관계에 대한 고민이 있나요? 공부에 너무 지쳐 계신가요? 혹은 상사에게 스트레스를 받고 계신가요?</p>
+          <p>이 고양이들도 정확히 그런 고민들을 가지고 있어요!<br>슬픈고양이 ‘우-냐’와 함께해요!</p>
+          <a href="#characters" class="char-btn">CHARACTERS</a>
+        </div>
+        <div class="about-media">
+          <img src="characters_hi.gif" alt="characters">
+        </div>
+      </section>
+
+      <!-- Video Section (유튜브 영상 영역) -->
+      <section id="video" class="video-section">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/Uq-tihVDVec" title="U-NYA YouTube Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </section>
+
+      <!-- Characters Section (캐릭터 목록 영역) -->
+      <section id="characters" class="char-section">
+        <!-- 주변 스티커 캐릭터 (Absolute 배치) -->
+        <img src="catsticker-1.png" alt="catsticker-1" class="sticker sticker-top-right">
+        <img src="catsticker-2.png" alt="catsticker-2" class="sticker sticker-bottom-left">
+
+        <div class="char-header">
+          <p class="sub-title">YOUR BLUE-HEARTED CATS</p>
+          <h2>Characters</h2>
+        </div>
+
+        <div class="char-grid">
+          <!-- 1. 네보룽 -->
+          <a href="char1.html" class="char-card">
+            <div class="card-img-wrap">
+              <img src="nebeaurung.png" alt="네보룽" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="nebeaurung-hover.png" alt="네보룽 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>네보룽</h3>
+            <p>Nebeaulung</p>
+          </a>
+
+          <!-- 2. 봄예일 -->
+          <a href="char2.html" class="char-card">
+            <div class="card-img-wrap">
+              <img src="bomyale.png" alt="봄예일" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="bomyale-hover.png" alt="봄예일 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>봄예일</h3>
+            <p>Bomyale</p>
+          </a>
+
+          <!-- 3. 로빈 쿤 -->
+          <a href="char3.html" class="char-card">
+            <div class="card-img-wrap">
+              <img src="robinkun.png" alt="로빈 쿤" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="robinkun-hover.png" alt="로빈 쿤 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>로빈 쿤</h3>
+            <p>Robin kun</p>
+          </a>
+
+          <!-- 4. 페르네온 -->
+          <a href="char4.html" class="char-card">
+            <div class="card-img-wrap">
+              <img src="perneon.png" alt="페르네온" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="perneon-hover.png" alt="페르네온 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>페르네온</h3>
+            <p>Perneon</p>
+          </a>
+
+
+          <!-- 5. 옥토퓨터 -->
+          <a href="javascript:void(0);" class="char-card">
+            <div class="card-img-wrap">
+              <img src="octopewter.png" alt="옥토퓨터" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="octopewter-hover.png" alt="옥토퓨터 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>옥토퓨터</h3>
+            <p>Octopewter</p>
+          </a>
+
+          <!-- 6. 로얄머핀 -->
+          <a href="javascript:void(0);" class="char-card">
+            <div class="card-img-wrap">
+              <img src="royalmuffin.png" alt="로얄머핀" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="royalmuffin-hover.png" alt="로얄머핀 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>로얄머핀</h3>
+            <p>Royal muffin</p>
+          </a>
+
+          <!-- 7. 먼터코 -->
+          <a href="javascript:void(0);" class="char-card">
+            <div class="card-img-wrap">
+              <img src="monturquo.png" alt="먼터코" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="monturquo-hover.png" alt="먼터코 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>먼터코</h3>
+            <p>Monturquo</p>
+          </a>
+
+          <!-- 8. 스핑키 -->
+          <a href="javascript:void(0);" class="char-card">
+            <div class="card-img-wrap">
+              <img src="sphinky.png" alt="스핑키" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="sphinky-hover.png" alt="스핑키 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>스핑키</h3>
+            <p>Sphinky</p>
+          </a>
+
+          <!-- 9. 샤도우 -->
+          <a href="javascript:void(0);" class="char-card">
+            <div class="card-img-wrap">
+              <img src="siadow.png" alt="샤도우" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="siadow-hover.png" alt="샤도우 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>샤도우</h3>
+            <p>Siadow</p>
+          </a>
+
+          <!-- 10. 우라냐 폴드 -->
+          <a href="javascript:void(0);" class="char-card">
+            <div class="card-img-wrap">
+              <img src="uraniafold.png" alt="우라냐 폴드" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="uraniafold-hover.png" alt="우라냐 폴드 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>우라냐 폴드</h3>
+            <p>Urania fold</p>
+          </a>
+
+          <!-- 11. 티파니즈 -->
+          <a href="javascript:void(0);" class="char-card">
+            <div class="card-img-wrap">
+              <img src="tiffaniz.png" alt="티파니즈" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="tiffaniz-hover.png" alt="티파니즈 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>티파니즈</h3>
+            <p>Tiffaniz</p>
+          </a>
+
+          <!-- 12. 피코티니안 -->
+          <a href="javascript:void(0);" class="char-card">
+            <div class="card-img-wrap">
+              <img src="picoteenian.png" alt="피코티니안" class="img-main" onerror="this.src='Image_coming_soon.png'">
+              <img src="picoteenian-hover.png" alt="피코티니안 hover" class="img-hover" onerror="this.style.display='none'">
+            </div>
+            <h3>피코티니안</h3>
+            <p>Picoteenian</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- News Section (뉴스 / 최신 소식 영역) -->
+      <section id="news" class="news-section">
+        <!-- 오른쪽 하단 고양이 스티커 (Absolute 배치) -->
+        <img src="catsticker-3.png" alt="catsticker-3" class="sticker sticker-bottom-right">
+
+        <!-- 기존 제목 클래스 재활용 (char-header, sub-title) -->
+        <div class="char-header">
+          <p class="sub-title">LATEST ISSUES</p>
+          <h2>NEWS</h2>
+        </div>
+
+        <div class="news-grid">
+          <!-- Card 1 -->
+          <div class="news-card">
+            <div class="news-img-wrap">
+              <img src="news-A.png" alt="서울일러스트페스티벌" onerror="this.src='Image_coming_soon.png'">
+            </div>
+            <h3>“우-냐 X 서울일러스트페스티벌" 콜라보레이션 안내</h3>
+            <p class="news-date">2026/06/03</p>
+            <span class="news-tag tag-collabo">콜라보레이션</span>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="news-card">
+            <div class="news-img-wrap">
+              <img src="news-B.png" alt="AK 분당점 팝업스토어" onerror="this.src='Image_coming_soon.png'">
+            </div>
+            <h3>「우-냐 X [AK 분당점]」 팝업스토어 그랜드 오픈!</h3>
+            <p class="news-date">2026/06/03</p>
+            <span class="news-tag tag-collabo">콜라보레이션</span>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="news-card">
+            <div class="news-img-wrap">
+              <img src="news-C.png" alt="우-냐의 방 오프라인 전시" onerror="this.src='Image_coming_soon.png'">
+            </div>
+            <h3>첫 오프라인 단독 전시 "우-냐의 방" 개최</h3>
+            <p class="news-date">2026/06/03</p>
+            <span class="news-tag tag-collabo">콜라보레이션</span>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="news-card">
+            <div class="news-img-wrap">
+              <img src="news-D.png" alt="월페이퍼 무료 배포" onerror="this.src='Image_coming_soon.png'">
+            </div>
+            <h3>우냐 월페이퍼 배포</h3>
+            <p class="news-date">2026/06/03</p>
+            <span class="news-tag tag-free">무료 배포</span>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="news-card">
+            <div class="news-img-wrap">
+              <img src="news-E.png" alt="성향 심리테스트" onerror="this.src='Image_coming_soon.png'">
+            </div>
+            <h3>"나와 닮은 우-냐는 누구?" 인터랙티브 성향 심리테스트 오픈!</h3>
+            <p class="news-date">2026/06/03</p>
+            <span class="news-tag tag-event">신규 이벤트</span>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="news-card">
+            <div class="news-img-wrap">
+              <img src="news-F.png" alt="감정의 파편 아카이브" onerror="this.src='Image_coming_soon.png'">
+            </div>
+            <h3>우-냐 온라인 ‘나만의 감정의 파편’ 아카이브 페이지 업데이트</h3>
+            <p class="news-date">2026/06/03</p>
+            <span class="news-tag tag-event">신규 이벤트</span>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4.5rem;">
+          <button type="button" class="char-btn" style="border: none; cursor: pointer; padding: 0.95rem 3.5rem;">SEE
+            MORE</button>
+        </div>
+      </section>
+
+      <!-- Goods Info Section (굿즈 안내 영역) -->
+      <section id="goods" class="goods-section">
+        <!-- 기존 제목 클래스 재활용 (char-header, sub-title) -->
+        <div class="char-header">
+          <p class="sub-title">LOVELY APPLICATIONS</p>
+          <h2>GOODS INFO</h2>
+        </div>
+
+        <!-- 기존 뉴스 그리드 및 카드 클래스 재활용 (news-grid, news-card) -->
+        <div class="news-grid">
+          <!-- Card 1 -->
+          <div class="news-card">
+            <div class="news-img-wrap">
+              <img src="goods-1.png" alt="로얄 머핀 미니 플러쉬" onerror="this.src='Image_coming_soon.png'">
+            </div>
+            <h3>로얄 머핀 미니 플러쉬가 등장했어요!</h3>
+            <p class="news-date">2026/06/03</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="news-card">
+            <div class="news-img-wrap">
+              <img src="goods-2.png" alt="옥토퓨터 굿즈 콜라보레이션" onerror="this.src='Image_coming_soon.png'">
+            </div>
+            <h3>해양생물페스티벌 X 옥토퓨터 굿즈 콜라보레이션 공지</h3>
+            <p class="news-date">2026/05/21</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="news-card">
+            <div class="news-img-wrap">
+              <img src="goods-3.png" alt="먼터코 목베개" onerror="this.src='Image_coming_soon.png'">
+            </div>
+            <h3>먼터코가 당신의 목 위로 올라가고 싶어해요! - 먼터코 목베개 출시</h3>
+            <p class="news-date">2026/04/20</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4.5rem;">
+          <button type="button" class="char-btn" style="border: none; cursor: pointer; padding: 0.95rem 3.5rem;">SEE
+            MORE</button>
+        </div>
+      </section>
+
+      <!-- Gallery Section (갤러리 / 슬라이더 영역) -->
+      <section id="gallery" class="gallery-section">
+        <!-- 1. 고양이 머리 (사진 뒤쪽 z-index: 1) -->
+        <img src="gallery-cat-head.png" alt="cat head" class="gallery-cat-head" onerror="this.src='Image_coming_soon.png'">
+
+        <div class="gallery-container">
+          <!-- 2. 고양이 양 손 (사진 위쪽 z-index: 10 - 동일 이미지 cat-hand.png 2회 사용) -->
+          <img src="cat-hand.png" alt="cat hand left" class="gallery-cat-hand hand-left"
+            onerror="this.style.display='none'">
+          <img src="cat-hand.png" alt="cat hand right" class="gallery-cat-hand hand-right"
+            onerror="this.style.display='none'">
+
+          <!-- 3. 갤러리 슬라이더 (z-index: 5) -->
+          <div class="gallery-slider">
+            <div class="gallery-slides" id="gallerySlides">
+              <div class="gallery-slide active">
+                <img src="gallery-1.png" alt="Gallery 1" onerror="this.src='Image_coming_soon.png'">
+              </div>
+              <div class="gallery-slide">
+                <img src="gallery-2.png" alt="Gallery 2" onerror="this.src='Image_coming_soon.png'">
+              </div>
+              <div class="gallery-slide">
+                <img src="gallery-3.png" alt="Gallery 3" onerror="this.src='Image_coming_soon.png'">
+              </div>
+              <div class="gallery-slide">
+                <img src="gallery-4.png" alt="Gallery 4" onerror="this.src='Image_coming_soon.png'">
+              </div>
+            </div>
+
+            <!-- 좌우 화살표 버튼 (하얀 선 라인 화살표) -->
+            <button type="button" class="gallery-arrow prev-btn" id="prevSlideBtn" aria-label="Previous Slide">
+              <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4L4 20L20 36" stroke="white" stroke-width="3.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button type="button" class="gallery-arrow next-btn" id="nextSlideBtn" aria-label="Next Slide">
+              <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4L20 20L4 36" stroke="white" stroke-width="3.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <!-- 하단 인디케이터 도트 -->
+            <div class="gallery-dots" id="galleryDots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+              <span class="dot" data-index="3"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Backgrounds Section (배경화면 공유 영역) -->
+      <section id="wallpaper" class="bg-section">
+
+
+        <!-- 기존 제목 클래스 재활용 (char-header, sub-title) -->
+        <div class="char-header">
+          <p class="sub-title">A GIFT FOR YOU</p>
+          <h2>Backgrounds</h2>
+        </div>
+
+        <!-- 클릭 드래그 가로 스크롤 컨테이너 (background-1.png ~ background-7.png) -->
+        <div class="bg-scroll-container">
+          <div class="bg-card">
+            <img src="background-1.png" alt="Background 1" onerror="this.src='Image_coming_soon.png'">
+          </div>
+          <div class="bg-card">
+            <img src="background-2.png" alt="Background 2" onerror="this.src='Image_coming_soon.png'">
+          </div>
+          <div class="bg-card">
+            <img src="background-3.png" alt="Background 3" onerror="this.src='Image_coming_soon.png'">
+          </div>
+          <div class="bg-card">
+            <img src="background-4.png" alt="Background 4" onerror="this.src='Image_coming_soon.png'">
+          </div>
+          <div class="bg-card">
+            <img src="background-5.png" alt="Background 5" onerror="this.src='Image_coming_soon.png'">
+          </div>
+          <div class="bg-card">
+            <img src="background-6.png" alt="Background 6" onerror="this.src='Image_coming_soon.png'">
+          </div>
+          <div class="bg-card">
+            <img src="background-7.png" alt="Background 7" onerror="this.src='Image_coming_soon.png'">
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4.5rem;">
+          <button type="button" class="char-btn" style="border: none; cursor: pointer; padding: 0.95rem 3.5rem;">SEE
+            MORE</button>
+        </div>
+      </section>
+
+      <!-- Credits Section (하단 크레딧 영역) -->
+      <footer class="credits-section">
+        <!-- 좌측 상단 고양이 스티커 (Absolute 배치) -->
+        <img src="catsticker-5.png" alt="catsticker-5" class="sticker credits-sticker-top-left"
+          onerror="this.src='catsticker-4.png'">
+
+        <div class="credits-container">
+          <div class="credits-grid">
+            <!-- Col 1: Brand Info & Logo -->
+            <div class="credits-col col-brand">
+              <div class="footer-logo">
+                <img src="unya-logo.png" alt="U-NYA" onerror="this.src='logo.png'">
+              </div>
+              <p class="brand-desc">Lovely cats that comfort<br>your sadness by your side</p>
+            </div>
+
+            <!-- Col 2: Useful links -->
+            <div class="credits-col">
+              <h4>Useful links</h4>
+              <ul>
+                <li>About us</li>
+                <li>Events</li>
+                <li>Blogs</li>
+                <li>FAQ</li>
+              </ul>
+            </div>
+
+            <!-- Col 3: Main Menu -->
+            <div class="credits-col">
+              <h4>Main Menu</h4>
+              <ul>
+                <li>Home</li>
+                <li>Offers</li>
+                <li>Menus</li>
+                <li>Reservation</li>
+              </ul>
+            </div>
+
+            <!-- Col 4: Contact Us -->
+            <div class="credits-col">
+              <h4>Contact Us</h4>
+              <ul>
+                <li>example@email.com</li>
+                <li>+64 958 248 966</li>
+                <li>Social media</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bottom Row (Socials, Copyright, Contact Pill) -->
+          <div class="credits-bottom">
+            <div class="social-icons">
+              <span class="social-icon fb">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C20.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </span>
+              <span class="social-icon ig">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </span>
+              <span class="social-icon tw">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z" />
+                </svg>
+              </span>
+              <span class="social-icon yt">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+              </span>
+            </div>
+
+            <p class="copyright-text">Copyright © 2026 Jeong Sewon | All rights reserved</p>
+
+            <button type="button" class="btn-contact-pill">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.12.45 2.33.69 3.48.69a1 1 0 011 1v3.5a1 1 0 01-1 1C10.61 22 2 13.39 2 3a1 1 0 011-1H6.5a1 1 0 011 1c0 1.15.24 2.36.69 3.48a1 1 0 01-.21 1.11l-2.2 2.2z" />
+              </svg>
+              Contact
+            </button>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+  </div>
+
+  <!-- External JavaScript File -->
+  <script src="script.js"></script>
+</body>
+
+</html>

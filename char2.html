@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>봄예일 (BOMYALE) | U-NYA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;800;900&family=Noto+Sans+KR:wght@400;600;700;800&family=Outfit:wght@500;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body,
+    .wrap {
+      background-color: #646a98 !important;
+    }
+
+    .site-header {
+      background-color: transparent !important;
+    }
+
+    /* 캐릭터 상세 히어로 섹션 */
+    .char-detail-hero {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: calc(100vh - 100px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 2rem 5rem 2rem;
+      position: relative;
+    }
+
+    .char-detail-left-arrow {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ffffff;
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 10;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .char-detail-left-arrow:hover {
+      opacity: 1;
+      transform: translateY(-50%) scale(1.15);
+    }
+
+    .char-detail-content {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      padding-left: 3rem;
+    }
+
+    .char-main-img-wrap {
+      flex: 1.1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .char-main-img {
+      max-width: 100%;
+      max-height: 520px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.06));
+    }
+
+    .char-info-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    /* 캐릭터 영어 이름 전용 새 클래스 */
+    .char-english-title {
+      font-family: 'Fredoka', 'Outfit', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .char-info-text h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .char-desc {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #c7c7c7;
+      font-weight: 500;
+      margin-bottom: 3rem;
+      word-break: keep-all;
+    }
+
+    .watch-video-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .watch-video-text {
+      font-family: 'Outfit', 'Fredoka', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-play-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-play-circle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 992px) {
+      .char-detail-content {
+        flex-direction: column;
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .char-info-text {
+        align-items: center;
+        text-align: center;
+      }
+
+      .char-english-title {
+        font-size: 3.2rem;
+      }
+    }
+  </style>
+
+  <style>
+    /* ── 사이드 캐릭터 네비게이션 화살표 ── */
+    .char-nav-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      padding: 1.2rem 0.8rem;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s ease, transform 0.2s ease;
+
+    }
+
+    .char-nav-arrow:hover {
+      color: #ffffff;
+      transform: translateY(-50%) scale(1.12);
+    }
+
+    .char-nav-arrow.prev {
+      left: 2.8rem;
+    }
+
+    .char-nav-arrow.next {
+      right: 2.8rem;
+    }
+  </style>
+  <style>
+    /* ── 네비 바 색상 전환 ── */
+    .site-header .nav-link,
+    .site-header .arrow-down {
+      transition: color 0.35s ease;
+    }
+
+    .site-header.nav-on-dark .nav-link,
+    .site-header.nav-on-dark .arrow-down {
+      color: #ffffff !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 루트 wrap 유지 -->
+  <div class="wrap" id="wrap">
+    <!-- 네비게이션 바 (메인 페이지와 동일한 구조) -->
+    <header class="site-header">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <img src="unya-logo-bomyale.png" alt="U-NYA"
+            onerror="this.outerHTML='<span class=\'logo-text\'>U-NYA</span><span class=\'logo-sparkle\'>✨</span>'">
+        </a>
+        <nav class="nav-menu">
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="index.html#characters" class="nav-link">characters <span class="arrow-down">▾</span></a>
+          <a href="index.html#goods" class="nav-link">Services <span class="arrow-down">▾</span></a>
+          <a href="index.html#gallery" class="nav-link">Gallery</a>
+          <a href="index.html#goods" class="nav-link">Shop</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="char-detail-hero">
+      <!-- 좌측 이전 목록 돌아가기 화살표 -->
+
+      <div class="char-detail-content">
+        <!-- 고양이 캐릭터 이미지 (neborung_main.png 사용) -->
+        <div class="char-main-img-wrap">
+          <img src="bomyale-hover.png" alt="봄예일" class="char-main-img" onerror="this.src='Image_coming_soon.png'">
+        </div>
+
+        <!-- 캐릭터 설명 텍스트 -->
+        <div class="char-info-text">
+          <!-- 캐릭터 영어 이름 전용 새 클래스 (.char-english-title) -->
+          <h1 class="char-english-title">BOMYALE</h1>
+          <h2>봄예일</h2>
+          <p class="char-desc">
+            남색의 부드러운 털을 가진 이 고양이는.<br>겁이 많고 남을 잘 의심해요.<br>놀라지 않게 천천히 다가와 주세요.
+          </p>
+
+          <!-- Watch Video 버튼 -->
+          <div class="watch-video-wrap">
+            <span class="watch-video-text">Watch Video</span>
+            <a href="index.html#video" class="btn-play-circle" aria-label="Watch Video">
+              <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 8L2 14V2L12 8Z" fill="#111111" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 흰 배경 영역 (턴어라운드 이미지) -->
+    <section
+      style="background-color: #ffffff; width: 100%; display: flex; justify-content: center; align-items: center; margin: 0; padding: 0;">
+      <img src="bomyale_turnaround.png" alt="봄예일 턴어라운드" style="width: 100%; height: auto; display: block;">
+    </section>
+
+    <!-- 회색 배경 영역 (액션 이미지) -->
+    <section
+      style="background-color: #e5e5e5; width: 100%; display: flex; justify-content: center; align-items: center; margin: 0; padding: 0;">
+      <img src="bomyale_actions.png" alt="봄예일 액션" style="width: 100%; height: auto; display: block;">
+    </section>
+
+    <!-- CARTOONS Section (검은 배경 / 흰 텍스트) -->
+    <section class="char-cartoons-section">
+      <!-- 섹션 제목 (index.html의 뉴스 패널과 동일한 char-header 구조 활용) -->
+      <div class="char-header char-header--dark">
+        <p class="sub-title sub-title--dark">INCLUDING CONTENTS</p>
+        <h2 class="section-h2--dark">CARTOONS</h2>
+      </div>
+
+      <!-- 카드 그리드 (news-grid 구조 재사용, 3열) -->
+      <div class="news-grid char-cartoons-grid">
+
+        <!-- Card 1 -->
+        <a href="#" class="char-cartoon-card" aria-label="네가 답장이 없으면 불안해져">
+          <div class="char-cartoon-img-wrap">
+            <img src="cartoon-bomyale-1.png" alt="네가 답장이 없으면 불안해져" onerror="this.src='Image_coming_soon.png'">
+          </div>
+          <h3>네가 답장이 없으면 불안해져</h3>
+          <p class="news-date news-date--dark">2026/06/03</p>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="#" class="char-cartoon-card" aria-label="이간질보룽">
+          <div class="char-cartoon-img-wrap">
+            <img src="cartoon-bomyale-2.png" alt="이간질보룽" onerror="this.src='Image_coming_soon.png'">
+          </div>
+          <h3>이간질보룽</h3>
+          <p class="news-date news-date--dark">2026/06/03</p>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="#" class="char-cartoon-card" aria-label="지금 날 속인 거니?">
+          <div class="char-cartoon-img-wrap">
+            <img src="cartoon-bomyale-3.png" alt="지금 날 속인 거니?" onerror="this.src='Image_coming_soon.png'">
+          </div>
+          <h3>지금 날 속인 거니?</h3>
+          <p class="news-date news-date--dark">2026/06/03</p>
+        </a>
+
+      </div>
+
+      <!-- SEE MORE 버튼 -->
+      <div style="text-align: center; margin-top: 4.5rem;">
+        <a href="#" class="char-btn char-btn--dark" aria-label="만화 더 보기">SEE MORE</a>
+      </div>
+    </section>
+
+    <!-- ANIMATIONS Section (흰 배경 / 검은 텍스트 / 9:16 세로형 이미지) -->
+    <section class="char-animations-section">
+      <!-- 섹션 제목: char-header + sub-title + h2 구조 그대로 활용 -->
+      <div class="char-header">
+        <p class="sub-title">INCLUDING CONTENTS</p>
+        <h2>ANIMATIONS</h2>
+      </div>
+
+      <!-- 카드 그리드: news-grid(3열) 재사용 -->
+      <div class="news-grid char-animations-grid">
+
+        <!-- Card 1 -->
+        <a href="https://www.youtube.com/shorts/RcNa-NF8bqg" target="_blank" class="char-anim-card"
+          aria-label="MOSHI MOSHI??">
+          <div class="bg-card">
+            <img src="anim-bomyale-1.png" alt="MOSHI MOSHI??" onerror="this.src='video_coming_soon.png'">
+          </div>
+          <h3>MOSHI MOSHI?? ≥^•ω•^≤</h3>
+          <p class="news-date">2026/06/03</p>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="#" class="char-anim-card" aria-label="내가 없는 곳에서 즐겁지 마!">
+          <div class="bg-card">
+            <img src="anim-bomyale-2.png" alt="내가 없는 곳에서 즐겁지 마!" onerror="this.src='video_coming_soon.png'">
+          </div>
+          <h3>BACKROOM WALKING</h3>
+          <p class="news-date">2026/06/03</p>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="#" class="char-anim-card" aria-label="너랑 걔랑 이미 아는 사이라고?">
+          <div class="bg-card">
+            <img src="anim-bomyale-3.png" alt="너랑 걔랑 이미 아는 사이라고?" onerror="this.src='video_coming_soon.png'">
+          </div>
+          <h3>send this to someone you want to play minecraft with...</h3>
+          <p class="news-date">2026/06/03</p>
+        </a>
+
+      </div>
+
+      <!-- SEE MORE 버튼 -->
+      <div style="text-align: center; margin-top: 4.5rem;">
+        <a href="#" class="char-btn" aria-label="애니메이션 더 보기">SEE MORE</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer (index.html과 동일 구조, 배경색만 #ffd1dc) -->
+  <footer class="credits-section" style="background-color: #646a98;">
+    <!-- 좌측 상단 고양이 스티커 -->
+    <img src="catsticker-5.png" alt="catsticker-5" class="sticker credits-sticker-top-left"
+      onerror="this.src='catsticker-4.png'">
+
+    <div class="credits-container">
+      <div class="credits-grid">
+        <!-- Col 1: Brand Info & Logo -->
+        <div class="credits-col col-brand">
+          <div class="footer-logo">
+            <img src="unya-logo-bomyale.png" alt="U-NYA" onerror="this.src='logo.png'">
+          </div>
+          <p class="brand-desc">Lovely cats that comfort<br>your sadness by your side</p>
+        </div>
+
+        <!-- Col 2: Useful links -->
+        <div class="credits-col">
+          <h4>Useful links</h4>
+          <ul>
+            <li>About us</li>
+            <li>Events</li>
+            <li>Blogs</li>
+            <li>FAQ</li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Main Menu -->
+        <div class="credits-col">
+          <h4>Main Menu</h4>
+          <ul>
+            <li>Home</li>
+            <li>Offers</li>
+            <li>Menus</li>
+            <li>Reservation</li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Us -->
+        <div class="credits-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>example@email.com</li>
+            <li>+64 958 248 966</li>
+            <li>Social media</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Row (Socials, Copyright, Contact Pill) -->
+      <div class="credits-bottom">
+        <div class="social-icons">
+          <span class="social-icon fb">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C20.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </span>
+          <span class="social-icon ig">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </span>
+          <span class="social-icon tw">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z" />
+            </svg>
+          </span>
+          <span class="social-icon yt">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </span>
+        </div>
+
+        <p class="copyright-text">Copyright © 2026 Jeong Sewon | All rights reserved</p>
+
+        <button type="button" class="btn-contact-pill">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.12.45 2.33.69 3.48.69a1 1 0 011 1v3.5a1 1 0 01-1 1C10.61 22 2 13.39 2 3a1 1 0 011-1H6.5a1 1 0 011 1c0 1.15.24 2.36.69 3.48a1 1 0 01-.21 1.11l-2.2 2.2z" />
+          </svg>
+          Contact
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* ── CARTOONS Section ── */
+    .char-cartoons-section {
+      width: 100%;
+      background-color: #111111;
+      padding: 10rem 2rem 14rem 2rem;
+      position: relative;
+    }
+
+    /* 제목 다크 모드 override */
+    .char-header--dark .sub-title--dark {
+      color: #ff6b8b;
+    }
+
+    .section-h2--dark {
+      font-family: var(--font-family-base);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #ffffff !important;
+      letter-spacing: -0.02em;
+    }
+
+    /* 카드 그리드 */
+    .char-cartoons-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* 개별 카드 (링크) */
+    .char-cartoon-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 이미지 래퍼 — 정사각형 1:1 비율 */
+    .char-cartoon-img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      background-color: #222222;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .char-cartoon-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .char-cartoon-card:hover .char-cartoon-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    /* 제목 — 흰색 */
+    .char-cartoon-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.45;
+      margin-bottom: 0.5rem;
+      word-break: keep-all;
+    }
+
+    /* 날짜 — 회색 */
+    .news-date--dark {
+      color: #777777 !important;
+    }
+
+    /* SEE MORE 버튼 다크 variant */
+    .char-btn--dark {
+      display: inline-block;
+      padding: 0.95rem 3.5rem;
+      background-color: #ffffff;
+      color: #111111;
+      font-family: 'Outfit', 'Fredoka', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.2s ease;
+    }
+
+    .char-btn--dark:hover {
+      background-color: #e0e0e0;
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <style>
+    /* ── ANIMATIONS Section ── */
+    .char-animations-section {
+      width: 100%;
+      background-color: #ffffff;
+      padding: 10rem 2rem 14rem 2rem;
+      position: relative;
+    }
+
+    .char-animations-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .char-anim-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* bg-card 클래스 그대로 사용, 그리드 내에서 폭·마진·그림자만 오버라이드 */
+    .char-anim-card .bg-card {
+      width: 100%;
+      flex: none;
+      margin-bottom: 1rem;
+      box-shadow: 0px 6px 0 #181924;
+    }
+
+    .char-anim-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #111111;
+      line-height: 1.45;
+      margin-bottom: 0.5rem;
+      word-break: keep-all;
+    }
+
+    /* Footer 다크 테마 오버라이드 */
+    .credits-section h4 {
+      color: #ffffff !important;
+    }
+
+    .credits-section .brand-desc,
+    .credits-section ul li,
+    .credits-section .copyright-text,
+    .credits-section .btn-contact-pill {
+      color: #d8d8d8 !important;
+    }
+
+    .credits-section .btn-contact-pill {
+      border-color: #d8d8d8 !important;
+    }
+
+    .credits-section .btn-contact-pill:hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+  </style>
+
+  <!-- 사이드 캐릭터 네비게이션 화살표 (wrap 외부, fixed) -->
+  <a href="char1.html" class="char-nav-arrow prev" aria-label="이전 캐릭터">
+    <svg width="22" height="38" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 4L4 20L20 36" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </a>
+  <a href="char3.html" class="char-nav-arrow next" aria-label="다음 캐릭터">
+    <svg width="22" height="38" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 4L20 20L4 36" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </a>
+
+  <script>
+    (function () {
+      var header = document.querySelector('.site-header');
+      if (!header) return;
+
+      var darkSections = document.querySelectorAll('.char-cartoons-section');
+      if (!darkSections.length) return;
+
+      function getHeaderHeight() {
+        return header.getBoundingClientRect().height || 80;
+      }
+
+      function makeObserver() {
+        var hh = getHeaderHeight();
+        return new IntersectionObserver(function (entries) {
+          var anyIntersecting = false;
+          entries.forEach(function (e) {
+            if (e.isIntersecting) anyIntersecting = true;
+          });
+          if (anyIntersecting) {
+            header.classList.add('nav-on-dark');
+          } else {
+            header.classList.remove('nav-on-dark');
+          }
+        }, {
+          /* 헤더 높이만큼 위쪽에서, 나머지 viewport는 제외 */
+          rootMargin: '0px 0px -' + (window.innerHeight - hh - 1) + 'px 0px',
+          threshold: 0
+        });
+      }
+
+      var obs = makeObserver();
+      darkSections.forEach(function (s) { obs.observe(s); });
+    })();
+  </script>
+
+</body>
+
+</html>
